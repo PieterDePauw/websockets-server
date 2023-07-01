@@ -1,0 +1,48 @@
+{
+  "name": "immer-gifts",
+  "type": "commonjs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "immer": "4.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^4.0.3",
+    "use-immer": "^0.9.0",
+    "uuid": "^9.0.0",
+    "ws": "^7.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-server": "node -r esm server.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.5",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "deepfreeze": "^2.0.0",
+    "esm": "^3.2.25",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.18.2"
+  }
+}
