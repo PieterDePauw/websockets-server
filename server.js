@@ -1,17 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { Server as WebSocketServer } from "ws";
 import { applyPatches, produceWithPatches } from "immer";
-import * as dotenv from "dotenv";
 import gifts from "./src/data/gifts.json";
 
-// Load environment variables
-dotenv.config();
-const webSocketPort = process.env.WEBSOCKET_PORT || "5001"
-
-
-// ! WEBSOCKETS ! //
 // Define WebSocket Server
-const wss = new WebSocketServer({ "port": webSocketPort })
+const wss = new WebSocketServer({ "port": "5001" })
 
 // Define connections
 let connections = [];
@@ -60,11 +53,10 @@ wss.on("connection", (ws) => {
 // Define the initial state
 const initialState = { gifts };
 
-
 // ! COMPRESS HISTORY ! //
 // Compress history
 export function compressHistory(currentPatches) {
-  const [finalState, patches] = produceWithPatches(initialState, draft => {
+  const [_finalState, patches] = produceWithPatches(initialState, draft => {
     return applyPatches(draft, currentPatches);
   });
 
@@ -72,10 +64,6 @@ export function compressHistory(currentPatches) {
   console.log("COMPRESSING HISTORY");
   console.log(`compressed patches from ${history.length} to ${patches.length} patches`);
   console.log(JSON.stringify(patches, null, 2));
-
-  // Final state
-  //console.log("FINAL STATE")
-  //console.log(finalState);
 
   return patches;
 }
