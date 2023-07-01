@@ -4,7 +4,7 @@ import { applyPatches, produceWithPatches } from "immer";
 import gifts from "./src/data/gifts.json";
 
 // Define WebSocket Server
-const server = "wss://websockets-server-tjbl.onrender.com:5001";
+const server = "ws://websockets-server-tjbl.onrender.com:5001";
 const wss = new WebSocketServer({ server })
 
 // Define connections
